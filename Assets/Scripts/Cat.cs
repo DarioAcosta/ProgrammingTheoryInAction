@@ -9,13 +9,15 @@ public class Cat : Animal
     {
         Invoke("talk", Random.Range(2f, 4f));
         Invoke("randomJump", Random.Range(3f, 6f));
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (transform.position.y < -50)
+        {
+            Destroy(gameObject);
+        }
     }
 
 

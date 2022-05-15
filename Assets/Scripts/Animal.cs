@@ -27,7 +27,7 @@ public abstract class Animal : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
 
@@ -59,6 +59,7 @@ public abstract class Animal : MonoBehaviour
 
     public void talk()
     {
+
         textDialog.text = "my name is " + animalName;
         dialogCanvas.gameObject.SetActive(true);
         Invoke("hideTalk", Random.Range(2f, 6f));
@@ -67,6 +68,7 @@ public abstract class Animal : MonoBehaviour
     void hideTalk()
     {
         dialogCanvas.gameObject.SetActive(false);
+        Invoke("talk", Random.Range(3f, 10f));
     }
 
 }
