@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 
 
@@ -11,10 +12,11 @@ using UnityEngine;
 public abstract class Animal : MonoBehaviour
 {
     protected int life { get; set; }
-    protected string name { get; set; }
+    protected string animalName;
     protected float force=200;
     protected string favoriteFood { get; set; }
-
+    [SerializeField] protected GameObject dialogCanvas;
+    [SerializeField] protected TMP_Text textDialog;
 
     // Start is called before the first frame update
     void Start()
@@ -46,6 +48,25 @@ public abstract class Animal : MonoBehaviour
     public void cancelJump()
     {
         CancelInvoke("randomJump");
+    }
+
+
+    public virtual void setName(string name)
+    {
+        animalName = name;
+    }
+
+
+    public void talk()
+    {
+        textDialog.text = "my name is " + animalName;
+        dialogCanvas.gameObject.SetActive(true);
+        Invoke("hideTalk", Random.Range(2f, 6f));
+    }
+
+    void hideTalk()
+    {
+        dialogCanvas.gameObject.SetActive(false);
     }
 
 }

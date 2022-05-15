@@ -7,6 +7,8 @@ public class GeneratePet : MonoBehaviour
     public Cat catPrefab;
     public Dog dogPrefab;
 
+    string[] catsName = { "mishi", "pspspspsps", "catcatcat","catName","cat","kesha"};
+    string[] dogsName = {"doggy","goodboy","dogdogdog","dogName","scooby","bigDog"};
     // Start is called before the first frame update
     void Start()
     {
@@ -42,11 +44,16 @@ public class GeneratePet : MonoBehaviour
 
     void generateCat()
     {
-        Instantiate(catPrefab);
+        Cat cat= Instantiate(catPrefab);
+        cat.setName(catsName[Random.Range(0, catsName.Length)]);
+        cat.transform.rotation.SetEulerRotation(0, Random.Range(0,359f), 0);
     }
     void generateDog()
     {
-        Instantiate(dogPrefab);
+        Dog dog=Instantiate(dogPrefab);
+        dog.setName(dogsName[Random.Range(0,dogsName.Length)]);
+        dog.transform.rotation.SetEulerRotation(0, Random.Range(0, 359f), 0);
+
     }
 
 

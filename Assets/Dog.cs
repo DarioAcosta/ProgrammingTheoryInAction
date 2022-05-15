@@ -7,6 +7,8 @@ public class Dog : Animal
     // Start is called before the first frame update
     void Start()
     {
+        Invoke("talk", Random.Range(2f, 4f));
+
         Invoke("randomJump", Random.Range(5, 30));
     }
 

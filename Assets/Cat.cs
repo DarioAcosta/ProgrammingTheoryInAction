@@ -7,7 +7,8 @@ public class Cat : Animal
     // Start is called before the first frame update
     void Start()
     {
-        Invoke("randomJump", Random.Range(3, 6));
+        Invoke("talk", Random.Range(2f, 4f));
+        Invoke("randomJump", Random.Range(3f, 6f));
 
     }
 
@@ -25,4 +26,17 @@ public class Cat : Animal
 
         GetComponent<Rigidbody>().AddForce(0, force*3, 0);
     }
+
+    public override void setName(string name)
+    {
+        if (name.Length >= 6)
+        {
+            name.Substring(0, 5);
+        }
+        base.setName(name);
+    }
+
+
+
+
 }
